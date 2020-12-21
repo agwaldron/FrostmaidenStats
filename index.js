@@ -10,14 +10,14 @@ var loginstring = '';
 
 var babestats = {
 	Title: 'Babe The Gladiator',
-	FinalBlows: 0,
-	CriticalHits: 0,
-	Attacks: 0,
-	AttacksLanded: 0,
+	FinalBlows: 2,
+	CriticalHits: 1,
+	Attacks: 4,
+	AttacksLanded: 2,
 	SpellsCast: 0,
-	DamageDealt: 0,
-	PeakDamage: 0,
-	HealingDone: 0,
+	DamageDealt: 19,
+	PeakDamage: 10,
+	HealingDone: 6,
 	Blocks: 0,
 	DamageTaken: 0,
 	NearDeaths: 0,
@@ -26,13 +26,13 @@ var babestats = {
 
 var dhingstats = {
 	Title: 'Dhing Baat The Kitty Cat',
-	FinalBlows: 0,
+	FinalBlows: 2,
 	CriticalHits: 0,
-	Attacks: 0,
-	AttacksLanded: 0,
-	SpellsCast: 0,
-	DamageDealt: 0,
-	PeakDamage: 0,
+	Attacks: 7,
+	AttacksLanded: 3,
+	SpellsCast: 1,
+	DamageDealt: 29,
+	PeakDamage: 15,
 	HealingDone: 0,
 	Blocks: 0,
 	DamageTaken: 0,
@@ -42,35 +42,35 @@ var dhingstats = {
 
 var edstats = {
 	Title: 'Eddryn Palestray The Yeti Child',
-	FinalBlows: 0,
-	CriticalHits: 0,
-	Attacks: 0,
-	AttacksLanded: 0,
+	FinalBlows: 1,
+	CriticalHits: 1,
+	Attacks: 7,
+	AttacksLanded: 3,
 	SpellsCast: 0,
-	DamageDealt: 0,
-	PeakDamage: 0,
-	HealingDone: 0,
+	DamageDealt: 32,
+	PeakDamage: 17,
+	HealingDone: 11,
 	Blocks: 0,
-	DamageTaken: 0,
+	DamageTaken: 25,
 	NearDeaths: 0,
 	Revives: 0,
-	Echoes: 0
+	Echoes: 3
 }
 
 var idastats = {
 	Title: 'Ida Karon The Fish Finder',
-	FinalBlows: 0,
+	FinalBlows: 1,
 	CriticalHits: 0,
-	Attacks: 0,
-	AttacksLanded: 0,
-	SpellsCast: 0,
-	DamageDealt: 0,
-	PeakDamage: 0,
+	Attacks: 5,
+	AttacksLanded: 2,
+	SpellsCast: 2,
+	DamageDealt: 14,
+	PeakDamage: 14,
 	HealingDone: 0,
 	Blocks: 0,
-	DamageTaken: 0,
+	DamageTaken: 3,
 	NearDeaths: 0,
-	Revives: 0,
+	Revives: 1,
 	Balance: 0
 }
 
@@ -78,28 +78,28 @@ var loonstats = {
 	Title: 'Loon Irakame The Cursed',
 	FinalBlows: 0,
 	CriticalHits: 0,
-	Attacks: 0,
+	Attacks: 1,
 	AttacksLanded: 0,
 	SpellsCast: 0,
 	DamageDealt: 0,
 	PeakDamage: 0,
 	HealingDone: 0,
-	Blocks: 0,
-	DamageTaken: 0,
-	NearDeaths: 0,
+	Blocks: 1,
+	DamageTaken: 19,
+	NearDeaths: 1,
 	Revives: 0
 }
 
 var milchstats = {
 	Title: 'Milch Macornhole The Mover And Shaker',
-	FinalBlows: 0,
+	FinalBlows: 2,
 	CriticalHits: 0,
-	Attacks: 0,
-	AttacksLanded: 0,
-	SpellsCast: 0,
-	DamageDealt: 0,
-	PeakDamage: 0,
-	HealingDone: 0,
+	Attacks: 2,
+	AttacksLanded: 1,
+	SpellsCast: 4,
+	DamageDealt: 25,
+	PeakDamage: 9,
+	HealingDone: 13,
 	Blocks: 0,
 	DamageTaken: 0,
 	NearDeaths: 0,
@@ -112,10 +112,10 @@ function printBabe(message){
 	message.channel.send('Critical hits: '+babestats.CriticalHits);
 	message.channel.send('Attacks: '+babestats.Attacks);
 	message.channel.send('Attacks Landed: '+babestats.AttacksLanded);
-	var accuracy = 0; 
-	message.channel.send('Attack accuracy: '+accuracy);
+	var accuracy = Math.floor((babestats.AttacksLanded / babestats.Attacks) * 100);
+	message.channel.send('Attack accuracy: '+accuracy+'%');
 	message.channel.send('Spells Cast: '+babestats.SpellsCast);
-	message.channel.send('Damage Delt: '+babestats.DamageDealt);
+	message.channel.send('Damage Dealt: '+babestats.DamageDealt);
 	message.channel.send('Most damage in single round: '+babestats.PeakDamage);
 	message.channel.send('Healing Done: '+babestats.HealingDone);
 	message.channel.send('Blocks: '+babestats.Blocks);
@@ -131,10 +131,10 @@ function printDhing(message){
 	message.channel.send('Critical hits: '+dhingstats.CriticalHits);
 	message.channel.send('Attacks: '+dhingstats.Attacks);
 	message.channel.send('Attacks Landed: '+dhingstats.AttacksLanded);
-	var accuracy = 0;
-	message.channel.send('Attack accuracy: '+accuracy);
+	var accuracy = Math.floor((dhingstats.AttacksLanded / dhingstats.Attacks) * 100);
+	message.channel.send('Attack accuracy: '+accuracy+'%');
 	message.channel.send('Spells Cast: '+dhingstats.SpellsCast);
-	message.channel.send('Damage Delt: '+dhingstats.DamageDealt);
+	message.channel.send('Damage Dealt: '+dhingstats.DamageDealt);
 	message.channel.send('Most damage in single round: '+dhingstats.PeakDamage);
 	message.channel.send('Healing Done: '+dhingstats.HealingDone);
 	message.channel.send('Blocks: '+dhingstats.Blocks);
@@ -150,10 +150,10 @@ function printEd(message){
 	message.channel.send('Critical hits: '+edstats.CriticalHits);
 	message.channel.send('Attacks: '+edstats.Attacks);
 	message.channel.send('Attacks Landed: '+edstats.AttacksLanded);
-	var accuracy = 0;
-	message.channel.send('Attack accuracy: '+accuracy);
+	var accuracy = Math.floor((edstats.AttacksLanded / edstats.Attacks) * 100);
+	message.channel.send('Attack accuracy: '+accuracy+'%');
 	message.channel.send('Spells Cast: '+edstats.SpellsCast);
-	message.channel.send('Damage Delt: '+edstats.DamageDealt);
+	message.channel.send('Damage Dealt: '+edstats.DamageDealt);
 	message.channel.send('Most damage in single round: '+edstats.PeakDamage);
 	message.channel.send('Healing Done: '+edstats.HealingDone);
 	message.channel.send('Blocks: '+edstats.Blocks);
@@ -170,10 +170,10 @@ function printIda(message){
 	message.channel.send('Critical hits: '+idastats.CriticalHits);
 	message.channel.send('Attacks: '+idastats.Attacks);
 	message.channel.send('Attacks Landed: '+idastats.AttacksLanded);
-	var accuracy = 0;
-	message.channel.send('Attack accuracy: '+accuracy);
+	var accuracy = Math.floor((idastats.AttacksLanded / idastats.Attacks) * 100);
+	message.channel.send('Attack accuracy: '+accuracy+'%');
 	message.channel.send('Spells Cast: '+idastats.SpellsCast);
-	message.channel.send('Damage Delt: '+idastats.DamageDealt);
+	message.channel.send('Damage Dealt: '+idastats.DamageDealt);
 	message.channel.send('Most damage in single round: '+idastats.PeakDamage);
 	message.channel.send('Healing Done: '+idastats.HealingDone);
 	message.channel.send('Blocks: '+idastats.Blocks);
@@ -191,9 +191,9 @@ function printLoon(message){
 	message.channel.send('Attacks: '+loonstats.Attacks);
 	message.channel.send('Attacks Landed: '+loonstats.AttacksLanded);
 	var accuracy = 0;
-	message.channel.send('Attack accuracy: '+accuracy);
+	message.channel.send('Attack accuracy: '+accuracy+'%');
 	message.channel.send('Spells Cast: '+loonstats.SpellsCast);
-	message.channel.send('Damage Delt: '+loonstats.DamageDealt);
+	message.channel.send('Damage Dealt: '+loonstats.DamageDealt);
 	message.channel.send('Most damage in single round: '+loonstats.PeakDamage);
 	message.channel.send('Healing Done: '+loonstats.HealingDone);
 	message.channel.send('Blocks: '+loonstats.Blocks);
@@ -209,10 +209,10 @@ function printMilch(message){
 	message.channel.send('Critical hits: '+milchstats.CriticalHits);
 	message.channel.send('Attacks: '+milchstats.Attacks);
 	message.channel.send('Attacks Landed: '+milchstats.AttacksLanded);
-	var accuracy = 0;
-	message.channel.send('Attack accuracy: '+accuracy);
+	var accuracy = Math.floor((milchstats.AttacksLanded / milchstats.Attacks) * 100);
+	message.channel.send('Attack accuracy: '+accuracy+'%');
 	message.channel.send('Spells Cast: '+milchstats.SpellsCast);
-	message.channel.send('Damage Delt: '+milchstats.DamageDealt);
+	message.channel.send('Damage Dealt: '+milchstats.DamageDealt);
 	message.channel.send('Most damage in single rond: '+milchstats.PeakDamage);
 	message.channel.send('Healing Done: '+milchstats.HealingDone);
 	message.channel.send('Blocks: '+milchstats.Blocks);
@@ -223,8 +223,33 @@ function printMilch(message){
 }
 
 function printParty(message){
-	message.channel.send('Party stets not implemented yet');
-}
+	message.channel.send('Combined Party Stats');
+	var fbstat = babestats.FinalBlows + dhingstats.FinalBlows + edstats.FinalBlows + idastats.FinalBlows + loonstats.FinalBlows + milchstats.FinalBlows;
+	message.channel.send('Final blows: '+fbstat);
+	var crstat = babestats.CriticalHits + dhingstats.CriticalHits + edstats.CriticalHits + idastats.CriticalHits + loonstats.CriticalHits + milchstats.CriticalHits;
+	message.channel.send('Critical hits: '+crstat);
+	var astat = babestats.Attacks + dhingstats.Attacks + edstats.Attacks + idastats.Attacks + loonstats.Attacks + milchstats.Attacks;
+	message.channel.send('Attacks: '+astat);
+	var alstat = babestats.AttacksLanded + dhingstats.AttacksLanded + edstats.AttacksLanded + idastats.AttacksLanded + milchstats.AttacksLanded;
+	message.channel.send('Attacks Landed: '+alstat);
+	var accuracy = Math.floor((alstat / astat) * 100);
+	message.channel.send('Attack accuracy: '+accuracy+'%');
+	var sstat = babestats.SpellsCast + dhingstats.SpellsCast + edstats.SpellsCast + idastats.SpellsCast + loonstats.SpellsCast + milchstats.SpellsCast;
+	message.channel.send('Spells cast: '+sstat);
+	var dstat = babestats.DamageDealt + dhingstats.DamageDealt + edstats.DamageDealt + idastats.DamageDealt + loonstats.DamageDealt + milchstats.DamageDealt;
+	message.channel.send('Damage dealt: '+dstat);
+	var hstat = babestats.HealingDone + dhingstats.HealingDone + edstats.HealingDone + idastats.HealingDone + loonstats.HealingDone + milchstats.HealingDone;
+	message.channel.send('Healing done: '+hstat);
+	var bstat = babestats.Blocks + dhingstats.Blocks + edstats.Blocks + idastats.Blocks + loonstats.Blocks + milchstats.Blocks;
+	message.channel.send('Blocks: '+bstat);
+	var dtstat = babestats.DamageTaken + dhingstats.DamageTaken + edstats.DamageTaken + idastats.DamageTaken + loonstats.DamageTaken + milchstats.DamageTaken;
+	message.channel.send('Damage Taken: '+dtstat);
+	var ndstat = babestats.NearDeaths + dhingstats.NearDeaths + edstats.NearDeaths + idastats.NearDeaths + loonstats.NearDeaths + milchstats.NearDeaths;
+	message.channel.send('Near Deaths: '+ndstat);
+	var rstat = babestats.Revives + dhingstats.Revives + edstats.Revives + idastats.Revives + loonstats.Revives + milchstats.Revives;
+	message.channel.send('Revives: '+rstat);
+	message.channel.send('Warning: All stats are subject to drunken, human error');
+}	
 
 function printRanke(message){
 	message.channel.send('Ranks not implemented yet');
