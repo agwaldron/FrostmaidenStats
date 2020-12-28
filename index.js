@@ -5,6 +5,7 @@ const fs = require('fs');
 
 const statsprefix = '!s';
 const rankprefix = '!r';
+const helpprefix = '!h';
 
 var loginstring = '';
 
@@ -63,7 +64,7 @@ var idastats = {
 	CriticalHits: 0,
 	Attacks: 5,
 	AttacksLanded: 2,
-	SpellsCast: 2,
+	SpellsCast: 3,
 	DamageDealt: 14,
 	PeakDamage: 14,
 	HealingDone: 0,
@@ -251,23 +252,39 @@ function printParty(message){
 	message.channel.send('Warning: All stats are subject to drunken, human error');
 }	
 
-function printRanke(message){
+function printRank(message){
 	message.channel.send('Ranks not implemented yet');
 }
+
+function printHelp(message){
+	message.channel.send('Rime of the Frostmaiden Stat Bot Help');
+	message.channel.send('<----------------------------------->');
+	message.channel.send('Stats');
+	message.channel.send('- !s followed by command');
+	message.channel.send('- command can be a party members name to print their stats');
+	message.channel.send('- command can be \'party\' to print the party\'s combined stats');
+	message.channel.send('<----------------------------------->');
+	message.channel.send('Rank');
+	message.channel.send('- coming soon');
+	message.channel.send('<----------------------------------->');
+	message.channel.send('Help');
+	message.channel.send('- !h');
+	message.channel.send('- lists available commands');
+	message.channel.send('<----------------------------------->');
+	message.channel.send('Remember to stay warm out there!');
+}
+
 
 client.once('ready', () => {
 	console.log('Stat bot running');
 });
 
 client.on('message', message => {
-	if(!message.content.startsWith(statsprefix) && !message.content.startsWith(rankprefix)){ return; }
-
-	var stats = true;
-	if(message.content.charAt(1) === 'r'){ stats = false; }
+	if(!message.content.startsWith(statsprefix) && !message.content.startsWith(rankprefix) && !message.content.startsWith(helpprefix)){ return; }
 
 	const command = message.content.slice(rankprefix.length).toLowerCase().split(' ').join('');
 
-	if(stats){
+	if(message.content.charAt(1) === 's'){
 		if(command === 'babe'){
 			printBabe(message);
 		}else if(command === 'dhing' || command === 'dhingbaat'){
@@ -285,8 +302,10 @@ client.on('message', message => {
 		}else{
 			message.channel.send('Error: invalid stat request');
 		}
-	}else{
+	}else if(message.content.charAt(1) === 'r'){
 		printRank(message);
+	}else {
+		printHelp(message);
 	}
 });
 
