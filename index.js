@@ -107,119 +107,28 @@ var milchstats = {
 	Revives: 0
 }
 
-function printBabe(message){
-	message.channel.send(babestats.Title);
-	message.channel.send('Final blows: '+babestats.FinalBlows);
-	message.channel.send('Critical hits: '+babestats.CriticalHits);
-	message.channel.send('Attacks: '+babestats.Attacks);
-	message.channel.send('Attacks Landed: '+babestats.AttacksLanded);
-	var accuracy = Math.floor((babestats.AttacksLanded / babestats.Attacks) * 100);
+function printPlayerStats(message, player){
+	message.channel.send(player.Title);
+	message.channel.send('Final blows: '+player.FinalBlows);
+	message.channel.send('Critical hits: '+player.CriticalHits);
+	message.channel.send('Attacks: '+player.Attacks);
+	message.channel.send('Attacks Landed: '+player.AttacksLanded);
+	var accuracy = Math.floor((player.AttacksLanded / player.Attacks) * 100);
+	if (player === loonstats) { accuracy = 0; }
 	message.channel.send('Attack accuracy: '+accuracy+'%');
-	message.channel.send('Spells Cast: '+babestats.SpellsCast);
-	message.channel.send('Damage Dealt: '+babestats.DamageDealt);
-	message.channel.send('Most damage in single round: '+babestats.PeakDamage);
-	message.channel.send('Healing Done: '+babestats.HealingDone);
-	message.channel.send('Blocks: '+babestats.Blocks);
-	message.channel.send('Damage Taken: '+babestats.DamageTaken);
-	message.channel.send('Near Deaths: '+babestats.NearDeaths);
-	message.channel.send('Revives: '+babestats.Revives);
-	message.channel.send('Warning: All stats are subject to drunken, human error');
-}
-
-function printDhing(message){
-	message.channel.send(dhingstats.Title);
-	message.channel.send('Final blows: '+dhingstats.FinalBlows);
-	message.channel.send('Critical hits: '+dhingstats.CriticalHits);
-	message.channel.send('Attacks: '+dhingstats.Attacks);
-	message.channel.send('Attacks Landed: '+dhingstats.AttacksLanded);
-	var accuracy = Math.floor((dhingstats.AttacksLanded / dhingstats.Attacks) * 100);
-	message.channel.send('Attack accuracy: '+accuracy+'%');
-	message.channel.send('Spells Cast: '+dhingstats.SpellsCast);
-	message.channel.send('Damage Dealt: '+dhingstats.DamageDealt);
-	message.channel.send('Most damage in single round: '+dhingstats.PeakDamage);
-	message.channel.send('Healing Done: '+dhingstats.HealingDone);
-	message.channel.send('Blocks: '+dhingstats.Blocks);
-	message.channel.send('Damage Taken: '+dhingstats.DamageTaken);
-	message.channel.send('Near Deaths: '+dhingstats.NearDeaths);
-	message.channel.send('Revives: '+dhingstats.Revives);
-	message.channel.send('Warning: All stats are subject to drunken, human error');
-}
-
-function printEd(message){
-	message.channel.send(edstats.Title);
-	message.channel.send('Final blows: '+edstats.FinalBlows);
-	message.channel.send('Critical hits: '+edstats.CriticalHits);
-	message.channel.send('Attacks: '+edstats.Attacks);
-	message.channel.send('Attacks Landed: '+edstats.AttacksLanded);
-	var accuracy = Math.floor((edstats.AttacksLanded / edstats.Attacks) * 100);
-	message.channel.send('Attack accuracy: '+accuracy+'%');
-	message.channel.send('Spells Cast: '+edstats.SpellsCast);
-	message.channel.send('Damage Dealt: '+edstats.DamageDealt);
-	message.channel.send('Most damage in single round: '+edstats.PeakDamage);
-	message.channel.send('Healing Done: '+edstats.HealingDone);
-	message.channel.send('Blocks: '+edstats.Blocks);
-	message.channel.send('Damage Taken: '+edstats.DamageTaken);
-	message.channel.send('Near Deaths: '+edstats.NearDeaths);
-	message.channel.send('Revives: '+edstats.Revives);
-	message.channel.send('Echoes Summoned: '+edstats.Echoes);
-	message.channel.send('Warning: All stats are subject to drunken, human error');
-}
-
-function printIda(message){
-	message.channel.send(idastats.Title);
-	message.channel.send('Final blows: '+idastats.FinalBlows);
-	message.channel.send('Critical hits: '+idastats.CriticalHits);
-	message.channel.send('Attacks: '+idastats.Attacks);
-	message.channel.send('Attacks Landed: '+idastats.AttacksLanded);
-	var accuracy = Math.floor((idastats.AttacksLanded / idastats.Attacks) * 100);
-	message.channel.send('Attack accuracy: '+accuracy+'%');
-	message.channel.send('Spells Cast: '+idastats.SpellsCast);
-	message.channel.send('Damage Dealt: '+idastats.DamageDealt);
-	message.channel.send('Most damage in single round: '+idastats.PeakDamage);
-	message.channel.send('Healing Done: '+idastats.HealingDone);
-	message.channel.send('Blocks: '+idastats.Blocks);
-	message.channel.send('Damage Taken: '+idastats.DamageTaken);
-	message.channel.send('Near Deaths: '+idastats.NearDeaths);
-	message.channel.send('Revives: '+idastats.Revives);
-	message.channel.send('Balance Restored: '+idastats.Balance);
-	message.channel.send('Warning: All stats are subject to drunken, human error');
-}
-
-function printLoon(message){
-	message.channel.send(loonstats.Title);
-	message.channel.send('Final blows: '+loonstats.FinalBlows);
-	message.channel.send('Critical hits: '+loonstats.CriticalHits);
-	message.channel.send('Attacks: '+loonstats.Attacks);
-	message.channel.send('Attacks Landed: '+loonstats.AttacksLanded);
-	var accuracy = 0;
-	message.channel.send('Attack accuracy: '+accuracy+'%');
-	message.channel.send('Spells Cast: '+loonstats.SpellsCast);
-	message.channel.send('Damage Dealt: '+loonstats.DamageDealt);
-	message.channel.send('Most damage in single round: '+loonstats.PeakDamage);
-	message.channel.send('Healing Done: '+loonstats.HealingDone);
-	message.channel.send('Blocks: '+loonstats.Blocks);
-	message.channel.send('Damage Taken: '+loonstats.DamageTaken);
-	message.channel.send('Near Deaths: '+loonstats.NearDeaths);
-	message.channel.send('Revives: '+loonstats.Revives);
-	message.channel.send('Warning: All stats are subject to drunken, human error');
-}
-
-function printMilch(message){
-	message.channel.send(milchstats.Title);
-	message.channel.send('Final blows: '+milchstats.FinalBlows);
-	message.channel.send('Critical hits: '+milchstats.CriticalHits);
-	message.channel.send('Attacks: '+milchstats.Attacks);
-	message.channel.send('Attacks Landed: '+milchstats.AttacksLanded);
-	var accuracy = Math.floor((milchstats.AttacksLanded / milchstats.Attacks) * 100);
-	message.channel.send('Attack accuracy: '+accuracy+'%');
-	message.channel.send('Spells Cast: '+milchstats.SpellsCast);
-	message.channel.send('Damage Dealt: '+milchstats.DamageDealt);
-	message.channel.send('Most damage in single rond: '+milchstats.PeakDamage);
-	message.channel.send('Healing Done: '+milchstats.HealingDone);
-	message.channel.send('Blocks: '+milchstats.Blocks);
-	message.channel.send('Damage Taken: '+milchstats.DamageTaken);
+	message.channel.send('Spells Cast: '+player.SpellsCast);
+	message.channel.send('Damage Dealt: '+player.DamageDealt);
+	message.channel.send('Most damage in single rond: '+player.PeakDamage);
+	message.channel.send('Healing Done: '+player.HealingDone);
+	message.channel.send('Blocks: '+player.Blocks);
+	message.channel.send('Damage Taken: '+player.DamageTaken);
 	message.channel.send('Near Deaths: '+milchstats.NearDeaths);
-	message.channel.send('Revives: '+milchstats.Revives);
+	message.channel.send('Revives: '+player.Revives);
+	if(player === edstats){
+		message.channel.send('Echoes summoned: '+player.Echoes);
+	}else if(player === idastats){
+		message.channel.send('Balance restored: '+player.Balance);
+	}
 	message.channel.send('Warning: All stats are subject to drunken, human error');
 }
 
@@ -286,17 +195,17 @@ client.on('message', message => {
 
 	if(message.content.charAt(1) === 's'){
 		if(command === 'babe'){
-			printBabe(message);
+			printPlayerStats(message, babestats);
 		}else if(command === 'dhing' || command === 'dhingbaat'){
-			printDhing(message);
+			printPlayerStats(message, dhingstats);
 		}else if(command === 'eddryn' || command === 'eddrynpalestray'){
-			printEd(message);
+			printPlayerStats(message, edstats);
 		}else if(command === 'ida' || command === 'idakaron'){
-			printIda(message);
+			printPlayerStats(message, idastats);
 		}else if(command === 'loon' || command === 'loonirakame'){
-			printLoon(message);
+			printPlayerStats(message, loonstats);
 		}else if(command === 'milch' || command === 'milchmacornhole'){
-			printMilch(message);
+			printPlayerStats(message, milchstats);
 		}else if(command === 'party'){
 			printParty(message);
 		}else{
