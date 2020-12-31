@@ -161,8 +161,184 @@ function printParty(message){
 	message.channel.send('Warning: All stats are subject to drunken, human error');
 }	
 
-function printRank(message){
-	message.channel.send('Ranks not implemented yet');
+function printFinalBlowsRank(message){
+	var ary = [];
+	ary.push([babestats.Title, babestats.FinalBlows]);
+	ary.push([dhingstats.Title, dhingstats.FinalBlows]);
+	ary.push([edstats.Title, edstats.FinalBlows]);
+	ary.push([idastats.Title, idastats.FinalBlows]);
+	ary.push([loonstats.Title, loonstats.FinalBlows]);
+	ary.push([milchstats.Title, milchstats.FinalBlows]);
+	ary.sort(function(a, b){ return b[1] - a[1] });
+	message.channel.send('Final Blows Leaderboard');
+	for(var i=0;i<ary.length;i++){
+		message.channel.send(ary[i][0]+':   '+ary[i][1]);
+	}
+}
+
+function printCriticalHitsRank(message){
+	var ary = [];
+	ary.push([babestats.Title, babestats.CriticalHits]);
+	ary.push([dhingstats.Title, dhingstats.CriticalHits]);
+	ary.push([edstats.Title, edstats.CriticalHits]);
+	ary.push([idastats.Title, idastats.CriticalHits]);
+	ary.push([loonstats.Title, loonstats.CriticalHits]);
+	ary.push([milchstats.Title, milchstats.CriticalHits]);
+	ary.sort(function(a, b){ return b[1] - a[1] });
+	message.channel.send('Critical Hits Leaderboard');
+	for(var i=0;i<ary.length;i++){
+		message.channel.send(ary[i][0]+':   '+ary[i][1]);
+	}
+}
+
+function printAttacksRank(message){
+	var ary = [];
+	ary.push([babestats.Title, babestats.Attacks]);
+	ary.push([dhingstats.Title, dhingstats.Attacks]);
+	ary.push([edstats.Title, edstats.Attacks]);
+	ary.push([idastats.Title, idastats.Attacks]);
+	ary.push([loonstats.Title, loonstats.Attacks]);
+	ary.push([milchstats.Title, milchstats.Attacks]);
+	ary.sort(function(a, b){ return b[1] - a[1] });
+	message.channel.send('Attacks Leaderboard');
+	for(var i=0;i<ary.length;i++){
+		message.channel.send(ary[i][0]+':   '+ary[i][1]);
+	}
+}
+
+function printAttacksLandedRank(message){
+	var ary = [];
+	ary.push([babestats.Title, babestats.AttacksLanded]);
+	ary.push([dhingstats.Title, dhingstats.AttacksLanded]);
+	ary.push([edstats.Title, edstats.AttacksLanded]);
+	ary.push([idastats.Title, idastats.AttacksLanded]);
+	ary.push([loonstats.Title, loonstats.AttacksLanded]);
+	ary.push([milchstats.Title, milchstats.AttacksLanded]);
+	ary.sort(function(a, b){ return b[1] - a[1] });
+	message.channel.send('Attacks Landed Leaderboard');
+	for(var i=0;i<ary.length;i++){
+		message.channel.send(ary[i][0]+':   '+ary[i][1]);
+	}
+}
+
+function printSpellsCastRank(message){
+	var ary = [];
+	ary.push([babestats.Title, babestats.SpellsCast]);
+	ary.push([dhingstats.Title, dhingstats.SpellsCast]);
+	ary.push([edstats.Title, edstats.SpellsCast]);
+	ary.push([idastats.Title, idastats.SpellsCast]);
+	ary.push([loonstats.Title, loonstats.SpellsCast]);
+	ary.push([milchstats.Title, milchstats.SpellsCast]);
+	ary.sort(function(a, b){ return b[1] - a[1] });
+	message.channel.send('Spells Cast Leaderboard');
+	for(var i=0;i<ary.length;i++){
+		message.channel.send(ary[i][0]+':   '+ary[i][1]);
+	}
+}
+
+function printDamageDealtRank(message){
+	var ary = [];
+	ary.push([babestats.Title, babestats.DamageDealt]);
+	ary.push([dhingstats.Title, dhingstats.DamageDealt]);
+	ary.push([edstats.Title, edstats.DamageDealt]);
+	ary.push([idastats.Title, idastats.DamageDealt]);
+	ary.push([loonstats.Title, loonstats.DamageDealt]);
+	ary.push([milchstats.Title, milchstats.DamageDealt]);
+	ary.sort(function(a, b){ return b[1] - a[1] });
+	message.channel.send('Damage Dealt Leaderboard');
+	for(var i=0;i<ary.length;i++){
+		message.channel.send(ary[i][0]+':   '+ary[i][1]);
+	}
+}
+
+function printSingleRoundDamageRank(message){
+	var ary = [];
+	ary.push([babestats.Title, babestats.PeakDamage]);
+	ary.push([dhingstats.Title, dhingstats.PeakDamage]);
+	ary.push([edstats.Title, edstats.PeakDamage]);
+	ary.push([idastats.Title, idastats.PeakDamage]);
+	ary.push([loonstats.Title, loonstats.PeakDamage]);
+	ary.push([milchstats.Title, milchstats.PeakDamage]);
+	ary.sort(function(a, b){ return b[1] - a[1] });
+	message.channel.send('Single Round Damage Leaderboard');
+	for(var i=0;i<ary.length;i++){
+		message.channel.send(ary[i][0]+':   '+ary[i][1]);
+	}
+}
+
+function printHealingRank(message){
+	var ary = [];
+	ary.push([babestats.Title, babestats.HealingDone]);
+	ary.push([dhingstats.Title, dhingstats.HealingDone]);
+	ary.push([edstats.Title, edstats.HealingDone]);
+	ary.push([idastats.Title, idastats.HealingDone]);
+	ary.push([loonstats.Title, loonstats.HealingDone]);
+	ary.push([milchstats.Title, milchstats.HealingDone]);
+	ary.sort(function(a, b){ return b[1] - a[1] });
+	message.channel.send('Healing Done Leaderboard');
+	for(var i=0;i<ary.length;i++){
+		message.channel.send(ary[i][0]+':   '+ary[i][1]);
+	}
+}
+
+function printBlocksRank(message){
+	var ary = [];
+	ary.push([babestats.Title, babestats.Blocks]);
+	ary.push([dhingstats.Title, dhingstats.Blocks]);
+	ary.push([edstats.Title, edstats.Blocks]);
+	ary.push([idastats.Title, idastats.Blocks]);
+	ary.push([loonstats.Title, loonstats.Blocks]);
+	ary.push([milchstats.Title, milchstats.Blocks]);
+	ary.sort(function(a, b){ return b[1] - a[1] });
+	message.channel.send('Blocks Leaderboard');
+	for(var i=0;i<ary.length;i++){
+		message.channel.send(ary[i][0]+':   '+ary[i][1]);
+	}
+}
+
+function printDamageTakenRank(message){
+	var ary = [];
+	ary.push([babestats.Title, babestats.DamageTaken]);
+	ary.push([dhingstats.Title, dhingstats.DamageTaken]);
+	ary.push([edstats.Title, edstats.DamageTaken]);
+	ary.push([idastats.Title, idastats.DamageTaken]);
+	ary.push([loonstats.Title, loonstats.DamageTaken]);
+	ary.push([milchstats.Title, milchstats.DamageTaken]);
+	ary.sort(function(a, b){ return a[1] - b[1] });
+	message.channel.send('Damage Taken Leaderboard');
+	for(var i=0;i<ary.length;i++){
+		message.channel.send(ary[i][0]+':   '+ary[i][1]);
+	}
+}
+
+function printNearDeathsRank(message){
+	var ary = [];
+	ary.push([babestats.Title, babestats.NearDeaths]);
+	ary.push([dhingstats.Title, dhingstats.NearDeaths]);
+	ary.push([edstats.Title, edstats.NearDeaths]);
+	ary.push([idastats.Title, idastats.NearDeaths]);
+	ary.push([loonstats.Title, loonstats.NearDeaths]);
+	ary.push([milchstats.Title, milchstats.NearDeaths]);
+	ary.sort(function(a, b){ return a[1] - b[1] });
+	message.channel.send('Near Deaths Leaderboard');
+	for(var i=0;i<ary.length;i++){
+		message.channel.send(ary[i][0]+':   '+ary[i][1]);
+	}
+}
+
+function printRevivesRank(message){
+	var ary = [];
+	ary.push([babestats.Title, babestats.Revives]);
+	ary.push([dhingstats.Title, dhingstats.Revives]);
+	ary.push([edstats.Title, edstats.Revives]);
+	ary.push([idastats.Title, idastats.Revives]);
+	ary.push([loonstats.Title, loonstats.Revives]);
+	ary.push([milchstats.Title, milchstats.Revives]);
+	ary.sort(function(a, b){ return b[1] - a[1] });
+	message.channel.send('Revives Leaderboard');
+	for(var i=0;i<ary.length;i++){
+		message.channel.send(ary[i][0]+':   '+ary[i][1]);
+	}
 }
 
 function printHelp(message){
@@ -209,10 +385,38 @@ client.on('message', message => {
 		}else if(command === 'party'){
 			printParty(message);
 		}else{
-			message.channel.send('Error: invalid stat request');
+			message.channel.send('Error: invalid stat request. Type \'!h\' for help');
 		}
 	}else if(message.content.charAt(1) === 'r'){
-		printRank(message);
+		if(command === 'finalblows'){
+			printFinalBlowsRank(message);
+		}else if(command === 'criticalhits'){
+			printCriticalHitsRank(message);
+		}else if(command === 'attacks'){
+			printAttacksRank(message);
+		}else if(command === 'attackslanded'){
+			printAttacksLandedRank(message);
+		}else if(command === 'attackaccuracy'){
+			printAttackAccuracyRank(message);
+		}else if(command === 'spellscast'){
+			printSpellsCastRank(message);
+		}else if(command === 'damagedealt'){
+			printDamageDealtRank(message);
+		}else if(command === 'singlerounddamage'){
+			printSingleRoundDamageRank(message);
+		}else if(command === 'healing'){
+			printHealingRank(message);
+		}else if(command === 'blocks'){
+			printBlocksRank(message);
+		}else if(command === 'damagetaken'){
+			printDamageTakenRank(message);
+		}else if(command === 'neardeaths'){
+			printNearDeathsRank(message);
+		}else if(command === 'revives'){
+			printRevivesRank(message);
+		}else{
+			message.channel.send('Error: invalid rank request. Type \'!h\' for help');
+		}
 	}else {
 		printHelp(message);
 	}
