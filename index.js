@@ -221,6 +221,26 @@ function printAttacksLandedRank(message){
 	}
 }
 
+function printAttackAccuracyRank(message){
+	var ary = [];
+	var acc = Math.floor((babestats.AttacksLanded / babestats.Attacks) * 100);
+	ary.push([babestats.Title, acc]);
+	acc = Math.floor((dhingstats.AttacksLanded / dhingstats.Attacks) * 100);
+	ary.push([dhingstats.Title, acc]);
+	acc = Math.floor((edstats.AttacksLanded / edstats.Attacks) * 100);
+	ary.push([edstats.Title, acc]);
+	acc = Math.floor((idastats.AttacksLanded / idastats.Attacks) * 100);
+	ary.push([idastats.Title, acc]);
+	ary.push([loonstats.Title, 0]);
+	acc = Math.floor((milchstats.AttacksLanded / milchstats.Attacks) * 100);
+	ary.push([milchstats.Title, acc]);
+	ary.sort(function(a, b){ return b[1] - a[1] });
+	message.channel.send('Attack Accuracy Leaderboard');
+	for(var i=0;i<ary.length;i++){
+		message.channel.send(ary[i][0]+':   '+ary[i][1]+'%');
+	}
+}
+
 function printSpellsCastRank(message){
 	var ary = [];
 	ary.push([babestats.Title, babestats.SpellsCast]);
@@ -350,7 +370,20 @@ function printHelp(message){
 	message.channel.send('- command can be \'party\' to print the party\'s combined stats');
 	message.channel.send('<----------------------------------->');
 	message.channel.send('Rank');
-	message.channel.send('- coming soon');
+	message.channel.send('- !r follow by one of the following commands');
+	message.channel.send('- final blows');
+	message.channel.send('- critical hits');
+	message.channel.send('- attacks');
+	message.channel.send('- attacks landed');
+	message.channel.send('- attack accuracy');
+	message.channel.send('- spells cast');
+	message.channel.send('- damage dealt');
+	message.channel.send('- single round damage');
+	message.channel.send('- healing');
+	message.channel.send('- blocks');
+	message.channel.send('- damage taken');
+	message.channel.send('- near deaths');
+	message.channel.send('- revives');
 	message.channel.send('<----------------------------------->');
 	message.channel.send('Help');
 	message.channel.send('- !h');
