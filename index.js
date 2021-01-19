@@ -1,28 +1,27 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
+//const mariadb = require('mariadb/callback');
 const fs = require('fs');
 
 const statsprefix = '!s';
 const rankprefix = '!r';
 const helpprefix = '!h';
 
-var loginstring = '';
-
 var babestats = {
 	Title: 'Babe The Gladiator',
-	FinalBlows: 2,
+	FinalBlows: 3,
 	CriticalHits: 1,
-	Attacks: 4,
-	AttacksLanded: 2,
+	Attacks: 5,
+	AttacksLanded: 3,
 	SpellsCast: 0,
-	DamageDealt: 19,
+	DamageDealt: 24,
 	PeakDamage: 10,
-	HealingDone: 6,
+	HealingDone: 12,
 	Blocks: 0,
 	DamageTaken: 0,
 	NearDeaths: 0,
-	Revives: 0
+	Revives: 1
 }
 
 var dhingstats = {
@@ -45,17 +44,17 @@ var edstats = {
 	Title: 'Eddryn Palestray The Yeti Child',
 	FinalBlows: 1,
 	CriticalHits: 1,
-	Attacks: 7,
-	AttacksLanded: 3,
+	Attacks: 8,
+	AttacksLanded: 4,
 	SpellsCast: 0,
-	DamageDealt: 32,
+	DamageDealt: 37,
 	PeakDamage: 17,
 	HealingDone: 11,
 	Blocks: 0,
 	DamageTaken: 25,
 	NearDeaths: 0,
 	Revives: 0,
-	Echoes: 3
+	Echoes: 4
 }
 
 var idastats = {
@@ -79,30 +78,30 @@ var loonstats = {
 	Title: 'Loon Irakame The Cursed',
 	FinalBlows: 0,
 	CriticalHits: 0,
-	Attacks: 1,
-	AttacksLanded: 0,
-	SpellsCast: 0,
-	DamageDealt: 0,
-	PeakDamage: 0,
-	HealingDone: 0,
-	Blocks: 1,
-	DamageTaken: 19,
-	NearDeaths: 1,
+	Attacks: 11,
+	AttacksLanded: 3,
+	SpellsCast: 2,
+	DamageDealt: 28,
+	PeakDamage: 10,
+	HealingDone: 6,
+	Blocks: 5,
+	DamageTaken: 58,
+	NearDeaths: 2,
 	Revives: 0
 }
 
 var milchstats = {
 	Title: 'Milch Macornhole The Mover And Shaker',
-	FinalBlows: 2,
+	FinalBlows: 4,
 	CriticalHits: 0,
-	Attacks: 2,
-	AttacksLanded: 1,
-	SpellsCast: 4,
-	DamageDealt: 25,
-	PeakDamage: 9,
-	HealingDone: 13,
-	Blocks: 0,
-	DamageTaken: 0,
+	Attacks: 6,
+	AttacksLanded: 4,
+	SpellsCast: 11,
+	DamageDealt: 85,
+	PeakDamage: 32,
+	HealingDone: 18,
+	Blocks: 1,
+	DamageTaken: 19,
 	NearDeaths: 0,
 	Revives: 0
 }

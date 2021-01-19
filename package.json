@@ -9,6 +9,7 @@
   "author": "awal",
   "license": "ISC",
   "dependencies": {
-    "discord.js": "^12.5.1"
+    "discord.js": "^12.5.1",
+    "mariadb": "^2.5.2"
   }
 }
