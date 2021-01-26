@@ -58,7 +58,7 @@ var edstats = {
 }
 
 var idastats = {
-	Title: 'Ida Karon The Fish Finder',
+	Title: 'Ida Karon The Orc Commander',
 	FinalBlows: 1,
 	CriticalHits: 0,
 	Attacks: 5,
@@ -91,7 +91,7 @@ var loonstats = {
 }
 
 var milchstats = {
-	Title: 'Milch Macornhole The Mover And Shaker',
+	Title: 'Milch Macornhole The Zealot',
 	FinalBlows: 4,
 	CriticalHits: 0,
 	Attacks: 6,
@@ -107,61 +107,66 @@ var milchstats = {
 }
 
 function printPlayerStats(message, player){
-	message.channel.send(player.Title);
-	message.channel.send('Final blows: '+player.FinalBlows);
-	message.channel.send('Critical hits: '+player.CriticalHits);
-	message.channel.send('Attacks: '+player.Attacks);
-	message.channel.send('Attacks Landed: '+player.AttacksLanded);
+	var response = '';
+	response += player.Title+'\n';
+	response += 'Final blows: '+player.FinalBlows+'\n';
+	response += 'Critical hits: '+player.CriticalHits+'\n';
+	response += 'Attacks: '+player.Attacks+'\n';
+	response += 'Attacks Landed: '+player.AttacksLanded+'\n';
 	var accuracy = Math.floor((player.AttacksLanded / player.Attacks) * 100);
-	if (player === loonstats) { accuracy = 0; }
-	message.channel.send('Attack accuracy: '+accuracy+'%');
-	message.channel.send('Spells Cast: '+player.SpellsCast);
-	message.channel.send('Damage Dealt: '+player.DamageDealt);
-	message.channel.send('Most damage in single rond: '+player.PeakDamage);
-	message.channel.send('Healing Done: '+player.HealingDone);
-	message.channel.send('Blocks: '+player.Blocks);
-	message.channel.send('Damage Taken: '+player.DamageTaken);
-	message.channel.send('Near Deaths: '+milchstats.NearDeaths);
-	message.channel.send('Revives: '+player.Revives);
+	response += 'Attack accuracy: '+accuracy+'%\n';
+	response += 'Spells Cast: '+player.SpellsCast+'\n';
+	response += 'Damage Dealt: '+player.DamageDealt+'\n';
+	response += 'Most damage in single rond: '+player.PeakDamage+'\n';
+	response += 'Healing Done: '+player.HealingDone+'\n';
+	response += 'Blocks: '+player.Blocks+'\n';
+	response += 'Damage Taken: '+player.DamageTaken+'\n';
+	response += 'Near Deaths: '+player.NearDeaths+'\n';
+	response += 'Revives: '+player.Revives+'\n';
 	if(player === edstats){
-		message.channel.send('Echoes summoned: '+player.Echoes);
+		response += 'Echoes summoned: '+player.Echoes+'\n';
 	}else if(player === idastats){
-		message.channel.send('Balance restored: '+player.Balance);
+		response += 'Balance restored: '+player.Balance+'\n';
 	}
-	message.channel.send('Warning: All stats are subject to drunken, human error');
+	response += 'Warning: All stats are subject to drunken, human error\n';
+	message.channel.send(response);
 }
 
 function printParty(message){
-	message.channel.send('Combined Party Stats');
+	var response = '';
+	response += 'Combined Party Stats\n';
 	var fbstat = babestats.FinalBlows + dhingstats.FinalBlows + edstats.FinalBlows + idastats.FinalBlows + loonstats.FinalBlows + milchstats.FinalBlows;
-	message.channel.send('Final blows: '+fbstat);
+	response += 'Final blows: '+fbstat+'\n';
 	var crstat = babestats.CriticalHits + dhingstats.CriticalHits + edstats.CriticalHits + idastats.CriticalHits + loonstats.CriticalHits + milchstats.CriticalHits;
-	message.channel.send('Critical hits: '+crstat);
+	response += 'Critical hits: '+crstat+'\n';
 	var astat = babestats.Attacks + dhingstats.Attacks + edstats.Attacks + idastats.Attacks + loonstats.Attacks + milchstats.Attacks;
-	message.channel.send('Attacks: '+astat);
-	var alstat = babestats.AttacksLanded + dhingstats.AttacksLanded + edstats.AttacksLanded + idastats.AttacksLanded + milchstats.AttacksLanded;
-	message.channel.send('Attacks Landed: '+alstat);
+	response += 'Attacks: '+astat+'\n';
+	var alstat = babestats.AttacksLanded + dhingstats.AttacksLanded + edstats.AttacksLanded + idastats.AttacksLanded + loonstats.AttacksLanded + milchstats.AttacksLanded;
+	response += 'Attacks Landed: '+alstat+'\n';
 	var accuracy = Math.floor((alstat / astat) * 100);
-	message.channel.send('Attack accuracy: '+accuracy+'%');
+	response += 'Attack accuracy: '+accuracy+'%\n';
 	var sstat = babestats.SpellsCast + dhingstats.SpellsCast + edstats.SpellsCast + idastats.SpellsCast + loonstats.SpellsCast + milchstats.SpellsCast;
-	message.channel.send('Spells cast: '+sstat);
+	response += 'Spells cast: '+sstat+'\n';
 	var dstat = babestats.DamageDealt + dhingstats.DamageDealt + edstats.DamageDealt + idastats.DamageDealt + loonstats.DamageDealt + milchstats.DamageDealt;
-	message.channel.send('Damage dealt: '+dstat);
+	response += 'Damage dealt: '+dstat+'\n';
 	var hstat = babestats.HealingDone + dhingstats.HealingDone + edstats.HealingDone + idastats.HealingDone + loonstats.HealingDone + milchstats.HealingDone;
-	message.channel.send('Healing done: '+hstat);
+	response += 'Healing done: '+hstat+'\n';
 	var bstat = babestats.Blocks + dhingstats.Blocks + edstats.Blocks + idastats.Blocks + loonstats.Blocks + milchstats.Blocks;
-	message.channel.send('Blocks: '+bstat);
+	response += 'Blocks: '+bstat+'\n';
 	var dtstat = babestats.DamageTaken + dhingstats.DamageTaken + edstats.DamageTaken + idastats.DamageTaken + loonstats.DamageTaken + milchstats.DamageTaken;
-	message.channel.send('Damage Taken: '+dtstat);
+	response += 'Damage Taken: '+dtstat+'\n';
 	var ndstat = babestats.NearDeaths + dhingstats.NearDeaths + edstats.NearDeaths + idastats.NearDeaths + loonstats.NearDeaths + milchstats.NearDeaths;
-	message.channel.send('Near Deaths: '+ndstat);
+	response += 'Near Deaths: '+ndstat+'\n';
 	var rstat = babestats.Revives + dhingstats.Revives + edstats.Revives + idastats.Revives + loonstats.Revives + milchstats.Revives;
-	message.channel.send('Revives: '+rstat);
-	message.channel.send('Warning: All stats are subject to drunken, human error');
+	response += 'Revives: '+rstat+'\n';
+	response += 'Warning: All stats are subject to drunken, human error'+'\n';
+	message.channel.send(response);
 }	
 
 function printFinalBlowsRank(message){
 	var ary = [];
+	var response = '';
+
 	ary.push([babestats.Title, babestats.FinalBlows]);
 	ary.push([dhingstats.Title, dhingstats.FinalBlows]);
 	ary.push([edstats.Title, edstats.FinalBlows]);
@@ -169,14 +174,18 @@ function printFinalBlowsRank(message){
 	ary.push([loonstats.Title, loonstats.FinalBlows]);
 	ary.push([milchstats.Title, milchstats.FinalBlows]);
 	ary.sort(function(a, b){ return b[1] - a[1] });
-	message.channel.send('Final Blows Leaderboard');
+
+	response += 'Final Blows Leaderboard\n';
 	for(var i=0;i<ary.length;i++){
-		message.channel.send(ary[i][0]+':   '+ary[i][1]);
+		response += ary[i][0]+':   '+ary[i][1]+'\n';
 	}
+	message.channel.send(response);
 }
 
 function printCriticalHitsRank(message){
 	var ary = [];
+	var response = '';
+
 	ary.push([babestats.Title, babestats.CriticalHits]);
 	ary.push([dhingstats.Title, dhingstats.CriticalHits]);
 	ary.push([edstats.Title, edstats.CriticalHits]);
@@ -184,14 +193,18 @@ function printCriticalHitsRank(message){
 	ary.push([loonstats.Title, loonstats.CriticalHits]);
 	ary.push([milchstats.Title, milchstats.CriticalHits]);
 	ary.sort(function(a, b){ return b[1] - a[1] });
-	message.channel.send('Critical Hits Leaderboard');
+
+	response += 'Critical Hits Leaderboard\n';
 	for(var i=0;i<ary.length;i++){
-		message.channel.send(ary[i][0]+':   '+ary[i][1]);
+		response += ary[i][0]+':   '+ary[i][1]+'\n';
 	}
+	message.channel.send(response);
 }
 
 function printAttacksRank(message){
 	var ary = [];
+	var response = '';
+
 	ary.push([babestats.Title, babestats.Attacks]);
 	ary.push([dhingstats.Title, dhingstats.Attacks]);
 	ary.push([edstats.Title, edstats.Attacks]);
@@ -199,14 +212,18 @@ function printAttacksRank(message){
 	ary.push([loonstats.Title, loonstats.Attacks]);
 	ary.push([milchstats.Title, milchstats.Attacks]);
 	ary.sort(function(a, b){ return b[1] - a[1] });
-	message.channel.send('Attacks Leaderboard');
+
+	response += 'Attacks Leaderboard\n';
 	for(var i=0;i<ary.length;i++){
-		message.channel.send(ary[i][0]+':   '+ary[i][1]);
+		response += ary[i][0]+':   '+ary[i][1]+'\n';
 	}
+	message.channel.send(response);
 }
 
 function printAttacksLandedRank(message){
 	var ary = [];
+	var response = '';
+
 	ary.push([babestats.Title, babestats.AttacksLanded]);
 	ary.push([dhingstats.Title, dhingstats.AttacksLanded]);
 	ary.push([edstats.Title, edstats.AttacksLanded]);
@@ -214,14 +231,18 @@ function printAttacksLandedRank(message){
 	ary.push([loonstats.Title, loonstats.AttacksLanded]);
 	ary.push([milchstats.Title, milchstats.AttacksLanded]);
 	ary.sort(function(a, b){ return b[1] - a[1] });
-	message.channel.send('Attacks Landed Leaderboard');
+
+	response += 'Attacks Landed Leaderboard\n';
 	for(var i=0;i<ary.length;i++){
-		message.channel.send(ary[i][0]+':   '+ary[i][1]);
+		response += ary[i][0]+':   '+ary[i][1]+'\n';
 	}
+	message.channel.send(response);
 }
 
 function printAttackAccuracyRank(message){
 	var ary = [];
+	var response = '';
+
 	var acc = Math.floor((babestats.AttacksLanded / babestats.Attacks) * 100);
 	ary.push([babestats.Title, acc]);
 	acc = Math.floor((dhingstats.AttacksLanded / dhingstats.Attacks) * 100);
@@ -230,18 +251,23 @@ function printAttackAccuracyRank(message){
 	ary.push([edstats.Title, acc]);
 	acc = Math.floor((idastats.AttacksLanded / idastats.Attacks) * 100);
 	ary.push([idastats.Title, acc]);
-	ary.push([loonstats.Title, 0]);
+	acc = Math.floor((loonstats.AttacksLanded / loonstats.Attacks) * 100);
+	ary.push([loonstats.Title, acc]);
 	acc = Math.floor((milchstats.AttacksLanded / milchstats.Attacks) * 100);
 	ary.push([milchstats.Title, acc]);
 	ary.sort(function(a, b){ return b[1] - a[1] });
-	message.channel.send('Attack Accuracy Leaderboard');
+
+	response += 'Attack Accuracy Leaderboard\n';
 	for(var i=0;i<ary.length;i++){
-		message.channel.send(ary[i][0]+':   '+ary[i][1]+'%');
+		response += ary[i][0]+':   '+ary[i][1]+'%'+'\n';
 	}
+	message.channel.send(response);
 }
 
 function printSpellsCastRank(message){
 	var ary = [];
+	var response = '';
+
 	ary.push([babestats.Title, babestats.SpellsCast]);
 	ary.push([dhingstats.Title, dhingstats.SpellsCast]);
 	ary.push([edstats.Title, edstats.SpellsCast]);
@@ -249,14 +275,18 @@ function printSpellsCastRank(message){
 	ary.push([loonstats.Title, loonstats.SpellsCast]);
 	ary.push([milchstats.Title, milchstats.SpellsCast]);
 	ary.sort(function(a, b){ return b[1] - a[1] });
-	message.channel.send('Spells Cast Leaderboard');
+	
+	response += 'Spells Cast Leaderboard\n';
 	for(var i=0;i<ary.length;i++){
-		message.channel.send(ary[i][0]+':   '+ary[i][1]);
+		response += ary[i][0]+':   '+ary[i][1]+'\n';
 	}
+	message.channel.send(response);
 }
 
 function printDamageDealtRank(message){
 	var ary = [];
+	var response = '';
+
 	ary.push([babestats.Title, babestats.DamageDealt]);
 	ary.push([dhingstats.Title, dhingstats.DamageDealt]);
 	ary.push([edstats.Title, edstats.DamageDealt]);
@@ -264,14 +294,17 @@ function printDamageDealtRank(message){
 	ary.push([loonstats.Title, loonstats.DamageDealt]);
 	ary.push([milchstats.Title, milchstats.DamageDealt]);
 	ary.sort(function(a, b){ return b[1] - a[1] });
-	message.channel.send('Damage Dealt Leaderboard');
+	
+	response += 'Damage Dealt Leaderboard\n';
 	for(var i=0;i<ary.length;i++){
-		message.channel.send(ary[i][0]+':   '+ary[i][1]);
+		response += ary[i][0]+':   '+ary[i][1]+'\n';
 	}
+	message.channel.send(response);
 }
 
 function printSingleRoundDamageRank(message){
 	var ary = [];
+	var response = '';
 	ary.push([babestats.Title, babestats.PeakDamage]);
 	ary.push([dhingstats.Title, dhingstats.PeakDamage]);
 	ary.push([edstats.Title, edstats.PeakDamage]);
@@ -279,14 +312,18 @@ function printSingleRoundDamageRank(message){
 	ary.push([loonstats.Title, loonstats.PeakDamage]);
 	ary.push([milchstats.Title, milchstats.PeakDamage]);
 	ary.sort(function(a, b){ return b[1] - a[1] });
-	message.channel.send('Single Round Damage Leaderboard');
+	
+	response += 'Single Round Damage Leaderboard\n';
 	for(var i=0;i<ary.length;i++){
-		message.channel.send(ary[i][0]+':   '+ary[i][1]);
+		response += ary[i][0]+':   '+ary[i][1]+'\n';
 	}
+	message.channel.send(response);
 }
 
 function printHealingRank(message){
 	var ary = [];
+	var response = '';
+
 	ary.push([babestats.Title, babestats.HealingDone]);
 	ary.push([dhingstats.Title, dhingstats.HealingDone]);
 	ary.push([edstats.Title, edstats.HealingDone]);
@@ -294,14 +331,18 @@ function printHealingRank(message){
 	ary.push([loonstats.Title, loonstats.HealingDone]);
 	ary.push([milchstats.Title, milchstats.HealingDone]);
 	ary.sort(function(a, b){ return b[1] - a[1] });
-	message.channel.send('Healing Done Leaderboard');
+	
+	response += 'Healing Done Leaderboard\n';
 	for(var i=0;i<ary.length;i++){
-		message.channel.send(ary[i][0]+':   '+ary[i][1]);
+		response += ary[i][0]+':   '+ary[i][1]+'\n';
 	}
+	message.channel.send(response);
 }
 
 function printBlocksRank(message){
 	var ary = [];
+	var response = '';
+
 	ary.push([babestats.Title, babestats.Blocks]);
 	ary.push([dhingstats.Title, dhingstats.Blocks]);
 	ary.push([edstats.Title, edstats.Blocks]);
@@ -309,14 +350,18 @@ function printBlocksRank(message){
 	ary.push([loonstats.Title, loonstats.Blocks]);
 	ary.push([milchstats.Title, milchstats.Blocks]);
 	ary.sort(function(a, b){ return b[1] - a[1] });
-	message.channel.send('Blocks Leaderboard');
+	
+	response += 'Blocks Leaderboard\n';
 	for(var i=0;i<ary.length;i++){
-		message.channel.send(ary[i][0]+':   '+ary[i][1]);
+		response += ary[i][0]+':   '+ary[i][1]+'\n';
 	}
+	message.channel.send(response);
 }
 
 function printDamageTakenRank(message){
 	var ary = [];
+	var response = '';
+
 	ary.push([babestats.Title, babestats.DamageTaken]);
 	ary.push([dhingstats.Title, dhingstats.DamageTaken]);
 	ary.push([edstats.Title, edstats.DamageTaken]);
@@ -324,14 +369,18 @@ function printDamageTakenRank(message){
 	ary.push([loonstats.Title, loonstats.DamageTaken]);
 	ary.push([milchstats.Title, milchstats.DamageTaken]);
 	ary.sort(function(a, b){ return a[1] - b[1] });
-	message.channel.send('Damage Taken Leaderboard');
+	
+	response += 'Damage Taken Leaderboard\n';
 	for(var i=0;i<ary.length;i++){
-		message.channel.send(ary[i][0]+':   '+ary[i][1]);
+		response += ary[i][0]+':   '+ary[i][1]+'\n';
 	}
+	message.channel.send(response);
 }
 
 function printNearDeathsRank(message){
 	var ary = [];
+	var response = '';
+
 	ary.push([babestats.Title, babestats.NearDeaths]);
 	ary.push([dhingstats.Title, dhingstats.NearDeaths]);
 	ary.push([edstats.Title, edstats.NearDeaths]);
@@ -339,56 +388,63 @@ function printNearDeathsRank(message){
 	ary.push([loonstats.Title, loonstats.NearDeaths]);
 	ary.push([milchstats.Title, milchstats.NearDeaths]);
 	ary.sort(function(a, b){ return a[1] - b[1] });
-	message.channel.send('Near Deaths Leaderboard');
+	
+	response += 'Near Deaths Leaderboard\n';
 	for(var i=0;i<ary.length;i++){
-		message.channel.send(ary[i][0]+':   '+ary[i][1]);
+		response += ary[i][0]+':   '+ary[i][1]+'\n';
 	}
+	message.channel.send(response);
 }
 
 function printRevivesRank(message){
 	var ary = [];
+	var response = '';
+
 	ary.push([babestats.Title, babestats.Revives]);
-	ary.push([dhingstats.Title, dhingstats.Revives]);
+	ary.push([dhingstats.Title, dhingstats.Revives])
 	ary.push([edstats.Title, edstats.Revives]);
 	ary.push([idastats.Title, idastats.Revives]);
 	ary.push([loonstats.Title, loonstats.Revives]);
 	ary.push([milchstats.Title, milchstats.Revives]);
 	ary.sort(function(a, b){ return b[1] - a[1] });
-	message.channel.send('Revives Leaderboard');
+
+	response += 'Revives Leaderboard\n';
 	for(var i=0;i<ary.length;i++){
-		message.channel.send(ary[i][0]+':   '+ary[i][1]);
+		response += ary[i][0]+':   '+ary[i][1]+'\n';
 	}
+	message.channel.send(response);
 }
 
 function printHelp(message){
-	message.channel.send('Rime of the Frostmaiden Stat Bot Help');
-	message.channel.send('<----------------------------------->');
-	message.channel.send('Stats');
-	message.channel.send('- !s followed by command');
-	message.channel.send('- command can be a party members name to print their stats');
-	message.channel.send('- command can be \'party\' to print the party\'s combined stats');
-	message.channel.send('<----------------------------------->');
-	message.channel.send('Rank');
-	message.channel.send('- !r follow by one of the following commands');
-	message.channel.send('- final blows');
-	message.channel.send('- critical hits');
-	message.channel.send('- attacks');
-	message.channel.send('- attacks landed');
-	message.channel.send('- attack accuracy');
-	message.channel.send('- spells cast');
-	message.channel.send('- damage dealt');
-	message.channel.send('- single round damage');
-	message.channel.send('- healing');
-	message.channel.send('- blocks');
-	message.channel.send('- damage taken');
-	message.channel.send('- near deaths');
-	message.channel.send('- revives');
-	message.channel.send('<----------------------------------->');
-	message.channel.send('Help');
-	message.channel.send('- !h');
-	message.channel.send('- lists available commands');
-	message.channel.send('<----------------------------------->');
-	message.channel.send('Remember to stay warm out there!');
+	var response = 'Rime of the Frostmaiden Stat Bot Help\n';
+	response += '<----------------------------------->\n';
+	response += 'Stats\n';
+	response += '- !s followed by command\n';
+	response += '- command can be a party members name to print their stats\n';
+	response += '- command can be \'party\' to print the party\'s combined stats\n';
+	response += '<----------------------------------->\n';
+	response += 'Rank\n';
+	response += '- !r follow by one of the following commands\n';
+	response += '- final blows\n';
+	response += '- critical hits\n';
+	response += '- attacks\n';
+	response += '- attacks landed\n';
+	response += '- attack accuracy\n';
+	response += '- spells cast\n';
+	response += '- damage dealt\n';
+	response += '- single round damage\n';
+	response += '- healing\n';
+	response += '- blocks\n';
+	response += '- damage taken\n';
+	response += '- near deaths\n';
+	response += '- revives\n';
+	response += '<----------------------------------->\n';
+	response += 'Help\n';
+	response += '- !h\n';
+	response += '- lists available commands\n';
+	response += '<----------------------------------->\n';
+	response += 'Remember to stay warm out there!\n';
+	message.channel.send(response);
 }
 
 
