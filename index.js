@@ -10,31 +10,31 @@ const helpprefix = '!h';
 
 var babestats = {
 	Title: 'Babe The Gladiator',
-	FinalBlows: 6,
-	CriticalHits: 2,
-	Attacks: 19,
-	AttacksLanded: 15,
+	FinalBlows: 7,
+	CriticalHits: 3,
+	Attacks: 33,
+	AttacksLanded: 22,
 	SpellsCast: 0,
-	DamageDealt: 227,
-	PeakDamage: 35,
+	DamageDealt: 381,
+	PeakDamage: 41,
 	HealingDone: 12,
-	Blocks: 3,
-	DamageTaken: 112,
-	NearDeaths: 0,
+	Blocks: 5,
+	DamageTaken: 174,
+	NearDeaths: 1,
 	Revives: 2
 }
 
 var dhingstats = {
 	Title: 'Dhing Baat The Kitty Cat',
-	FinalBlows: 3,
+	FinalBlows: 5,
 	CriticalHits: 0,
-	Attacks: 19,
-	AttacksLanded: 9,
-	SpellsCast: 10,
-	DamageDealt: 125,
+	Attacks: 24,
+	AttacksLanded: 11,
+	SpellsCast: 14,
+	DamageDealt: 157,
 	PeakDamage: 17,
-	HealingDone: 0,
-	Blocks: 2,
+	HealingDone: 15,
+	Blocks: 3,
 	DamageTaken: 73,
 	NearDeaths: 1,
 	Revives: 0
@@ -63,29 +63,29 @@ var idastats = {
 	CriticalHits: 0,
 	Attacks: 18,
 	AttacksLanded: 10,
-	SpellsCast: 24,
+	SpellsCast: 26,
 	DamageDealt: 160,
 	PeakDamage: 20,
-	HealingDone: 4,
+	HealingDone: 8,
 	Blocks: 2,
 	DamageTaken: 70,
 	NearDeaths: 0,
 	Revives: 1,
-	Balance: 1
+	Balance: 2
 }
 
 var loonstats = {
 	Title: 'Loon Irakame The Cursed',
-	FinalBlows: 2,
+	FinalBlows: 3,
 	CriticalHits: 2,
-	Attacks: 40,
-	AttacksLanded: 22,
+	Attacks: 46,
+	AttacksLanded: 25,
 	SpellsCast: 0,
-	DamageDealt: 239,
+	DamageDealt: 275,
 	PeakDamage: 45,
 	HealingDone: 6,
-	Blocks: 6,
-	DamageTaken: 81,
+	Blocks: 9,
+	DamageTaken: 91,
 	NearDeaths: 2,
 	Revives: 0
 }
@@ -94,16 +94,16 @@ var milchstats = {
 	Title: 'Milch Macornhole The Zealot',
 	FinalBlows: 5,
 	CriticalHits: 0,
-	Attacks: 14,
+	Attacks: 17,
 	AttacksLanded: 10,
-	SpellsCast: 29,
-	DamageDealt: 178,
-	PeakDamage: 32,
-	HealingDone: 225,
-	Blocks: 6,
-	DamageTaken: 88,
+	SpellsCast: 37,
+	DamageDealt: 378,
+	PeakDamage: 83,
+	HealingDone: 365,
+	Blocks: 10,
+	DamageTaken: 129,
 	NearDeaths: 0,
-	Revives: 0
+	Revives: 1
 }
 
 function printPlayerStats(message, player){
