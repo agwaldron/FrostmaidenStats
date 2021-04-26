@@ -47,7 +47,7 @@ var edstats = {
 	Attacks: 51,
 	AttacksLanded: 42,
 	SpellsCast: 0,
-	DamageDealt: 58,
+	DamageDealt: 458,
 	PeakDamage: 35,
 	HealingDone: 11,
 	Blocks: 4,
