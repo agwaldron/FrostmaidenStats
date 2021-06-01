@@ -10,33 +10,33 @@ const helpprefix = '!h';
 
 var babestats = {
 	Title: 'Babe The Gladiator',
-	FinalBlows: 9,
-	CriticalHits: 3,
-	Attacks: 54,
-	AttacksLanded: 34,
-	SpellsCast: 0,
-	DamageDealt: 513,
+	FinalBlows: 10,
+	CriticalHits: 4,
+	Attacks: 63,
+	AttacksLanded: 40,
+	SpellsCast: 2,
+	DamageDealt: 620,
 	PeakDamage: 41,
 	HealingDone: 12,
-	Blocks: 14,
-	DamageTaken: 220,
+	Blocks: 16,
+	DamageTaken: 281,
 	NearDeaths: 1,
 	Revives: 2
 }
 
 var dhingstats = {
 	Title: 'Dhing Baat The Kitty Cat',
-	FinalBlows: 8,
-	CriticalHits: 1,
-	Attacks: 46,
-	AttacksLanded: 22,
-	SpellsCast: 14,
-	DamageDealt: 303,
-	PeakDamage: 23,
-	HealingDone: 15,
-	Blocks: 14,
-	DamageTaken: 113,
-	NearDeaths: 2,
+	FinalBlows: 11,
+	CriticalHits: 2,
+	Attacks: 53,
+	AttacksLanded: 27,
+	SpellsCast: 19,
+	DamageDealt: 378,
+	PeakDamage: 30,
+	HealingDone: 26,
+	Blocks: 15,
+	DamageTaken: 150,
+	NearDeaths: 3,
 	Revives: 0
 }
 
@@ -44,49 +44,65 @@ var edstats = {
 	Title: 'Eddryn Palestray The Yeti Child',
 	FinalBlows: 7,
 	CriticalHits: 5,
-	Attacks: 51,
-	AttacksLanded: 42,
+	Attacks: 60,
+	AttacksLanded: 47,
 	SpellsCast: 0,
-	DamageDealt: 458,
+	DamageDealt: 503,
 	PeakDamage: 35,
 	HealingDone: 11,
-	Blocks: 4,
-	DamageTaken: 61,
+	Blocks: 7,
+	DamageTaken: 73,
 	NearDeaths: 0,
 	Revives: 0,
-	Echoes: 17
+	Echoes: 19
 }
 
 var idastats = {
 	Title: 'Ida Karon The Orc Commander',
 	FinalBlows: 7,
 	CriticalHits: 0,
-	Attacks: 24,
-	AttacksLanded: 12,
-	SpellsCast: 40,
-	DamageDealt: 207,
+	Attacks: 27,
+	AttacksLanded: 13,
+	SpellsCast: 47,
+	DamageDealt: 226,
 	PeakDamage: 20,
-	HealingDone: 13,
+	HealingDone: 41,
 	Blocks: 2,
 	DamageTaken: 77,
 	NearDeaths: 0,
-	Revives: 2,
-	Balance: 2
+	Revives: 3,
+	Balance: 4
+}
+
+var longstats = {
+	Title: 'Longinus Hest The Puppeteer',
+	FinalBlows: 0,
+	CriticalHits: 1,
+	Attacks: 5,
+	AttacksLanded: 3,
+	SpellsCast: 2,
+	DamageDealt: 98,
+	PeakDamage: 58,
+	HealingDone: 0,
+	Blocks: 0,
+	DamageTaken: 0,
+	NearDeaths: 0,
+	Revives: 0
 }
 
 var loonstats = {
-	Title: 'Loon Irakame The Cursed',
+	Title: 'Loon Irakame The Charred',
 	FinalBlows: 12,
 	CriticalHits: 3,
-	Attacks: 73,
-	AttacksLanded: 46,
+	Attacks: 77,
+	AttacksLanded: 48,
 	SpellsCast: 0,
-	DamageDealt: 670,
+	DamageDealt: 681,
 	PeakDamage: 149,
 	HealingDone: 6,
 	Blocks: 9,
-	DamageTaken: 91,
-	NearDeaths: 2,
+	DamageTaken: 179,
+	NearDeaths: 3,
 	Revives: 0
 }
 
@@ -117,7 +133,7 @@ function printPlayerStats(message, player){
 	response += 'Attack accuracy: '+accuracy+'%\n';
 	response += 'Spells Cast: '+player.SpellsCast+'\n';
 	response += 'Damage Dealt: '+player.DamageDealt+'\n';
-	response += 'Most damage in single rond: '+player.PeakDamage+'\n';
+	response += 'Most damage in single round: '+player.PeakDamage+'\n';
 	response += 'Healing Done: '+player.HealingDone+'\n';
 	response += 'Blocks: '+player.Blocks+'\n';
 	response += 'Damage Taken: '+player.DamageTaken+'\n';
@@ -135,29 +151,29 @@ function printPlayerStats(message, player){
 function printParty(message){
 	var response = '';
 	response += 'Combined Party Stats\n';
-	var fbstat = babestats.FinalBlows + dhingstats.FinalBlows + edstats.FinalBlows + idastats.FinalBlows + loonstats.FinalBlows + milchstats.FinalBlows;
+	var fbstat = babestats.FinalBlows + dhingstats.FinalBlows + edstats.FinalBlows + idastats.FinalBlows + longstats.FinalBlows + loonstats.FinalBlows + milchstats.FinalBlows;
 	response += 'Final blows: '+fbstat+'\n';
-	var crstat = babestats.CriticalHits + dhingstats.CriticalHits + edstats.CriticalHits + idastats.CriticalHits + loonstats.CriticalHits + milchstats.CriticalHits;
+	var crstat = babestats.CriticalHits + dhingstats.CriticalHits + edstats.CriticalHits + idastats.CriticalHits + longstats.CriticalHits + loonstats.CriticalHits + milchstats.CriticalHits;
 	response += 'Critical hits: '+crstat+'\n';
-	var astat = babestats.Attacks + dhingstats.Attacks + edstats.Attacks + idastats.Attacks + loonstats.Attacks + milchstats.Attacks;
+	var astat = babestats.Attacks + dhingstats.Attacks + edstats.Attacks + idastats.Attacks + longstats.Attacks + loonstats.Attacks + milchstats.Attacks;
 	response += 'Attacks: '+astat+'\n';
-	var alstat = babestats.AttacksLanded + dhingstats.AttacksLanded + edstats.AttacksLanded + idastats.AttacksLanded + loonstats.AttacksLanded + milchstats.AttacksLanded;
+	var alstat = babestats.AttacksLanded + dhingstats.AttacksLanded + edstats.AttacksLanded + idastats.AttacksLanded + longstats.AttacksLanded + loonstats.AttacksLanded + milchstats.AttacksLanded;
 	response += 'Attacks Landed: '+alstat+'\n';
 	var accuracy = Math.floor((alstat / astat) * 100);
 	response += 'Attack accuracy: '+accuracy+'%\n';
-	var sstat = babestats.SpellsCast + dhingstats.SpellsCast + edstats.SpellsCast + idastats.SpellsCast + loonstats.SpellsCast + milchstats.SpellsCast;
+	var sstat = babestats.SpellsCast + dhingstats.SpellsCast + edstats.SpellsCast + idastats.SpellsCast + longstats.SpellsCast + loonstats.SpellsCast + milchstats.SpellsCast;
 	response += 'Spells cast: '+sstat+'\n';
-	var dstat = babestats.DamageDealt + dhingstats.DamageDealt + edstats.DamageDealt + idastats.DamageDealt + loonstats.DamageDealt + milchstats.DamageDealt;
+	var dstat = babestats.DamageDealt + dhingstats.DamageDealt + edstats.DamageDealt + idastats.DamageDealt + longstats.DamageDealt + loonstats.DamageDealt + milchstats.DamageDealt;
 	response += 'Damage dealt: '+dstat+'\n';
-	var hstat = babestats.HealingDone + dhingstats.HealingDone + edstats.HealingDone + idastats.HealingDone + loonstats.HealingDone + milchstats.HealingDone;
+	var hstat = babestats.HealingDone + dhingstats.HealingDone + edstats.HealingDone + idastats.HealingDone + longstats.HealingDone + loonstats.HealingDone + milchstats.HealingDone;
 	response += 'Healing done: '+hstat+'\n';
-	var bstat = babestats.Blocks + dhingstats.Blocks + edstats.Blocks + idastats.Blocks + loonstats.Blocks + milchstats.Blocks;
+	var bstat = babestats.Blocks + dhingstats.Blocks + edstats.Blocks + idastats.Blocks + longstats.Blocks + loonstats.Blocks + milchstats.Blocks;
 	response += 'Blocks: '+bstat+'\n';
-	var dtstat = babestats.DamageTaken + dhingstats.DamageTaken + edstats.DamageTaken + idastats.DamageTaken + loonstats.DamageTaken + milchstats.DamageTaken;
+	var dtstat = babestats.DamageTaken + dhingstats.DamageTaken + edstats.DamageTaken + idastats.DamageTaken + longstats.DamageTaken + loonstats.DamageTaken + milchstats.DamageTaken;
 	response += 'Damage Taken: '+dtstat+'\n';
-	var ndstat = babestats.NearDeaths + dhingstats.NearDeaths + edstats.NearDeaths + idastats.NearDeaths + loonstats.NearDeaths + milchstats.NearDeaths;
+	var ndstat = babestats.NearDeaths + dhingstats.NearDeaths + edstats.NearDeaths + idastats.NearDeaths + longstats.NearDeaths + loonstats.NearDeaths + milchstats.NearDeaths;
 	response += 'Near Deaths: '+ndstat+'\n';
-	var rstat = babestats.Revives + dhingstats.Revives + edstats.Revives + idastats.Revives + loonstats.Revives + milchstats.Revives;
+	var rstat = babestats.Revives + dhingstats.Revives + edstats.Revives + idastats.Revives + longstats.Revives + loonstats.Revives + milchstats.Revives;
 	response += 'Revives: '+rstat+'\n';
 	response += 'Warning: All stats are subject to drunken, human error'+'\n';
 	message.channel.send(response);
@@ -171,6 +187,7 @@ function printFinalBlowsRank(message){
 	ary.push([dhingstats.Title, dhingstats.FinalBlows]);
 	ary.push([edstats.Title, edstats.FinalBlows]);
 	ary.push([idastats.Title, idastats.FinalBlows]);
+	ary.push([longstats.Title, longstats.FinalBlows]);
 	ary.push([loonstats.Title, loonstats.FinalBlows]);
 	ary.push([milchstats.Title, milchstats.FinalBlows]);
 	ary.sort(function(a, b){ return b[1] - a[1] });
@@ -190,6 +207,7 @@ function printCriticalHitsRank(message){
 	ary.push([dhingstats.Title, dhingstats.CriticalHits]);
 	ary.push([edstats.Title, edstats.CriticalHits]);
 	ary.push([idastats.Title, idastats.CriticalHits]);
+	ary.push([longstats.Title, longstats.CriticalHits]);
 	ary.push([loonstats.Title, loonstats.CriticalHits]);
 	ary.push([milchstats.Title, milchstats.CriticalHits]);
 	ary.sort(function(a, b){ return b[1] - a[1] });
@@ -209,6 +227,7 @@ function printAttacksRank(message){
 	ary.push([dhingstats.Title, dhingstats.Attacks]);
 	ary.push([edstats.Title, edstats.Attacks]);
 	ary.push([idastats.Title, idastats.Attacks]);
+	ary.push([longstats.Title, longstats.Attacks]);
 	ary.push([loonstats.Title, loonstats.Attacks]);
 	ary.push([milchstats.Title, milchstats.Attacks]);
 	ary.sort(function(a, b){ return b[1] - a[1] });
@@ -228,6 +247,7 @@ function printAttacksLandedRank(message){
 	ary.push([dhingstats.Title, dhingstats.AttacksLanded]);
 	ary.push([edstats.Title, edstats.AttacksLanded]);
 	ary.push([idastats.Title, idastats.AttacksLanded]);
+	ary.push([longstats.Title, longstats.AttacksLanded]);
 	ary.push([loonstats.Title, loonstats.AttacksLanded]);
 	ary.push([milchstats.Title, milchstats.AttacksLanded]);
 	ary.sort(function(a, b){ return b[1] - a[1] });
@@ -251,6 +271,8 @@ function printAttackAccuracyRank(message){
 	ary.push([edstats.Title, acc]);
 	acc = Math.floor((idastats.AttacksLanded / idastats.Attacks) * 100);
 	ary.push([idastats.Title, acc]);
+	acc = Math.floor((longstats.AttacksLanded / longstats.Attacks) * 100);
+	ary.push([longstats.Title, acc]);
 	acc = Math.floor((loonstats.AttacksLanded / loonstats.Attacks) * 100);
 	ary.push([loonstats.Title, acc]);
 	acc = Math.floor((milchstats.AttacksLanded / milchstats.Attacks) * 100);
@@ -272,6 +294,7 @@ function printSpellsCastRank(message){
 	ary.push([dhingstats.Title, dhingstats.SpellsCast]);
 	ary.push([edstats.Title, edstats.SpellsCast]);
 	ary.push([idastats.Title, idastats.SpellsCast]);
+	ary.push([longstats.Title, longstats.SpellsCast]);
 	ary.push([loonstats.Title, loonstats.SpellsCast]);
 	ary.push([milchstats.Title, milchstats.SpellsCast]);
 	ary.sort(function(a, b){ return b[1] - a[1] });
@@ -291,6 +314,7 @@ function printDamageDealtRank(message){
 	ary.push([dhingstats.Title, dhingstats.DamageDealt]);
 	ary.push([edstats.Title, edstats.DamageDealt]);
 	ary.push([idastats.Title, idastats.DamageDealt]);
+	ary.push([longstats.Title, longstats.DamageDealt]);
 	ary.push([loonstats.Title, loonstats.DamageDealt]);
 	ary.push([milchstats.Title, milchstats.DamageDealt]);
 	ary.sort(function(a, b){ return b[1] - a[1] });
@@ -309,6 +333,7 @@ function printSingleRoundDamageRank(message){
 	ary.push([dhingstats.Title, dhingstats.PeakDamage]);
 	ary.push([edstats.Title, edstats.PeakDamage]);
 	ary.push([idastats.Title, idastats.PeakDamage]);
+	ary.push([longstats.Title, longstats.PeakDamage]);
 	ary.push([loonstats.Title, loonstats.PeakDamage]);
 	ary.push([milchstats.Title, milchstats.PeakDamage]);
 	ary.sort(function(a, b){ return b[1] - a[1] });
@@ -328,6 +353,7 @@ function printHealingRank(message){
 	ary.push([dhingstats.Title, dhingstats.HealingDone]);
 	ary.push([edstats.Title, edstats.HealingDone]);
 	ary.push([idastats.Title, idastats.HealingDone]);
+	ary.push([longstats.Title, longstats.HealingDone]);
 	ary.push([loonstats.Title, loonstats.HealingDone]);
 	ary.push([milchstats.Title, milchstats.HealingDone]);
 	ary.sort(function(a, b){ return b[1] - a[1] });
@@ -347,6 +373,7 @@ function printBlocksRank(message){
 	ary.push([dhingstats.Title, dhingstats.Blocks]);
 	ary.push([edstats.Title, edstats.Blocks]);
 	ary.push([idastats.Title, idastats.Blocks]);
+	ary.push([longstats.Title, longstats.Blocks]);
 	ary.push([loonstats.Title, loonstats.Blocks]);
 	ary.push([milchstats.Title, milchstats.Blocks]);
 	ary.sort(function(a, b){ return b[1] - a[1] });
@@ -366,6 +393,7 @@ function printDamageTakenRank(message){
 	ary.push([dhingstats.Title, dhingstats.DamageTaken]);
 	ary.push([edstats.Title, edstats.DamageTaken]);
 	ary.push([idastats.Title, idastats.DamageTaken]);
+	ary.push([longstats.Title, longstats.DamageTaken]);
 	ary.push([loonstats.Title, loonstats.DamageTaken]);
 	ary.push([milchstats.Title, milchstats.DamageTaken]);
 	ary.sort(function(a, b){ return a[1] - b[1] });
@@ -385,6 +413,7 @@ function printNearDeathsRank(message){
 	ary.push([dhingstats.Title, dhingstats.NearDeaths]);
 	ary.push([edstats.Title, edstats.NearDeaths]);
 	ary.push([idastats.Title, idastats.NearDeaths]);
+	ary.push([longstats.Title, longstats.NearDeaths]);
 	ary.push([loonstats.Title, loonstats.NearDeaths]);
 	ary.push([milchstats.Title, milchstats.NearDeaths]);
 	ary.sort(function(a, b){ return a[1] - b[1] });
@@ -404,6 +433,7 @@ function printRevivesRank(message){
 	ary.push([dhingstats.Title, dhingstats.Revives])
 	ary.push([edstats.Title, edstats.Revives]);
 	ary.push([idastats.Title, idastats.Revives]);
+	ary.push([longstats.Title, longstats.Revives]);
 	ary.push([loonstats.Title, loonstats.Revives]);
 	ary.push([milchstats.Title, milchstats.Revives]);
 	ary.sort(function(a, b){ return b[1] - a[1] });
@@ -466,6 +496,8 @@ client.on('message', message => {
 			printPlayerStats(message, edstats);
 		}else if(command === 'ida' || command === 'idakaron'){
 			printPlayerStats(message, idastats);
+		}else if(command === 'longinus' || command === 'longinushest'){
+			printPlayerStats(message, longstats);
 		}else if(command === 'loon' || command === 'loonirakame'){
 			printPlayerStats(message, loonstats);
 		}else if(command === 'milch' || command === 'milchmacornhole'){
